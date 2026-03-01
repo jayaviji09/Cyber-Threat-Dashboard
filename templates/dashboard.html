@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cyber Threat Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="dashboard-box">
+        <h2>Threat Monitoring Dashboard</h2>
+        
+        <form method="POST">
+            <label>System IP Address</label>
+            <input type="text" class="auto-input" value="{{ ip }}" readonly>
+
+            <label>Total Packets (System Auto)</label>
+            <input type="text" class="auto-input" value="50,000" readonly>
+
+            <label>Total Time (seconds)</label>
+            <input type="text" class="auto-input" value="3600" readonly>
+
+            <label>Total CPU Time (%)</label>
+            <input type="text" class="auto-input" value="100%" readonly>
+
+            <label>Total Memory (GB)</label>
+            <input type="text" class="auto-input" value="16 GB" readonly>
+
+            <hr class="divider">
+
+            <label class="manual-label">Enter Packet Rate</label>
+            <input type="number" name="packet_rate" placeholder="Enter packets per sec" required>
+
+            <label class="manual-label">Enter Active CPU Time (%)</label>
+            <input type="number" name="active_cpu" placeholder="e.g. 45" required>
+
+            <label class="manual-label">Enter Used Memory (GB)</label>
+            <input type="number" name="used_memory" step="0.1" placeholder="e.g. 4.2" required>
+
+            <button type="submit">Predict Threat Risk</button>
+        </form>
+    </div>
+</body>
+</html>

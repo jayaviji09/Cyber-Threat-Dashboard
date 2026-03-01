@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Threat Result</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .popup {
+            width: 350px;
+            padding: 25px;
+            color: white;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .high {
+            background-color: red;
+        }
+
+        .low {
+            background-color: green;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 20px;   
+            justify-content: center;
+        }
+
+        button {
+            padding: 10px 25px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .prev-btn {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .close-btn {
+            background-color: #e74c3c;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+{% if status == "HIGH" %}
+    <div class="popup high">
+        ⚠ HIGH THREAT DETECTED!
+    </div>
+{% else %}
+    <div class="popup low">
+        ✅ LOW THREAT - SYSTEM SAFE
+    </div>
+{% endif %}
+
+<div class="button-container">
+    <button class="prev-btn" onclick="goBack()">Previous</button>
+    <button class="close-btn" onclick="goDashboard()">Close</button>
+</div>
+
+<script>
+function goBack() {
+    window.history.back();
+}
+
+function goDashboard() {
+    window.location.href = "/dashboard";
+}
+</script>
+
+</body>
+</html>
